@@ -159,7 +159,7 @@ bool AssignmentThread::traditionalTaskPrepare()
 #ifdef Q_OS_WIN32
                                 executableFile = task->getSourceFileName() + ".exe";
 #endif
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_MAC
                                 executableFile = task->getSourceFileName();
 #endif
                                 interpreterFlag = false;

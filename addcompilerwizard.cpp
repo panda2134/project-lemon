@@ -12,7 +12,7 @@ AddCompilerWizard::AddCompilerWizard(QWidget *parent) :
     ui->bytecodeFileExtensions->setValidator(new QRegExpValidator(QRegExp("(\\w+;)*\\w+"), this));
     ui->javaMemoryLimit->setValidator(new QIntValidator(64, 2048, this));
     
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_MAC
     if (QFileInfo("/usr/bin/gcc").exists())
         ui->gccPath->setText("/usr/bin/gcc");
     if (QFileInfo("/usr/bin/g++").exists())
@@ -254,7 +254,7 @@ void AddCompilerWizard::selectCompilerLocation()
                                                     QDir::rootPath(), tr("Executable files (*.exe)"));
 #endif
     
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_MAC
     QString location = QFileDialog::getOpenFileName(this, tr("Select Compiler\'s Location"),
                                                     QDir::rootPath(), tr("Executable files (*.*)"));
 #endif
@@ -271,7 +271,7 @@ void AddCompilerWizard::selectInterpreterLocation()
                                                     QDir::rootPath(), tr("Executable files (*.exe)"));
 #endif
     
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_MAC
     QString location = QFileDialog::getOpenFileName(this, tr("Select Interpreter\'s Location"),
                                                     QDir::rootPath(), tr("Executable files (*.*)"));
 #endif
@@ -288,7 +288,7 @@ void AddCompilerWizard::selectGccPath()
                                                     QDir::rootPath(), "gcc (gcc.exe)");
 #endif
     
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_MAC
     QString location = QFileDialog::getOpenFileName(this, tr("Select Compiler\'s Location"),
                                                     QDir::rootPath(), "gcc (gcc)");
 #endif
@@ -305,7 +305,7 @@ void AddCompilerWizard::selectGppPath()
                                                     QDir::rootPath(), "g++ (g++.exe)");
 #endif
     
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_MAC
     QString location = QFileDialog::getOpenFileName(this, tr("Select Compiler\'s Location"),
                                                     QDir::rootPath(), "g++ (g++)");
 #endif
@@ -322,7 +322,7 @@ void AddCompilerWizard::selectFpcPath()
                                                     QDir::rootPath(), "fpc (fpc.exe)");
 #endif
     
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_MAC
     QString location = QFileDialog::getOpenFileName(this, tr("Select Compiler\'s Location"),
                                                     QDir::rootPath(), "fpc (fpc)");
 #endif
@@ -339,7 +339,7 @@ void AddCompilerWizard::selectFbcPath()
                                                     QDir::rootPath(), "fbc (fbc.exe)");
 #endif
     
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_MAC
     QString location = QFileDialog::getOpenFileName(this, tr("Select Compiler\'s Location"),
                                                     QDir::rootPath(), "fbc (fbc)");
 #endif
@@ -356,7 +356,7 @@ void AddCompilerWizard::selectJavacPath()
                                                     QDir::rootPath(), "javac (javac.exe)");
 #endif
     
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_MAC
     QString location = QFileDialog::getOpenFileName(this, tr("Select Compiler\'s Location"),
                                                     QDir::rootPath(), "javac (javac)");
 #endif
@@ -373,7 +373,7 @@ void AddCompilerWizard::selectJavaPath()
                                                     QDir::rootPath(), "java (java.exe)");
 #endif
     
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_MAC
     QString location = QFileDialog::getOpenFileName(this, tr("Select Interpreter\'s Location"),
                                                     QDir::rootPath(), "java (java)");
 #endif
@@ -390,7 +390,7 @@ void AddCompilerWizard::selectPythonPath()
                                                     QDir::rootPath(), "python (python.exe)");
 #endif
     
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_MAC
     QString location = QFileDialog::getOpenFileName(this, tr("Select Interpreter\'s Location"),
                                                     QDir::rootPath(), "python (python)");
 #endif

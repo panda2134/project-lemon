@@ -36,7 +36,7 @@ void SelfTestUtil::clearPath(const QString &curDir)
 #ifdef Q_OS_WIN32
             QProcess::execute(QString("attrib -R \"") + curDir + fileList[i] + "\"");
 #endif
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_MAC
             QProcess::execute(QString("chmod +w \"") + curDir + fileList[i] + "\"");
 #endif
             dir.remove(fileList[i]);
@@ -79,7 +79,7 @@ void SelfTestUtil::makeSelfTest(QWidget *widget, Contest *contest)
         dummyStream << endl;
         dummy.close();
 #endif
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_MAC
         QFile file(Settings::selfTestPath() + taskList[i]->getProblemTile() + QDir::separator() + "check.sh");
         if (! file.open(QFile::WriteOnly | QFile::Text)) {
             QApplication::restoreOverrideCursor();
@@ -91,7 +91,7 @@ void SelfTestUtil::makeSelfTest(QWidget *widget, Contest *contest)
 #ifdef Q_OS_WIN32
         out << "@echo off" << endl;
 #endif
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_MAC
         out << "#!/bin/bash" << endl;
 #endif
         if (taskList[i]->getComparisonMode() == Task::RealNumberMode) {
@@ -102,7 +102,7 @@ void SelfTestUtil::makeSelfTest(QWidget *widget, Contest *contest)
             QProcess::execute(QString("attrib -R \"") + Settings::selfTestPath() + taskList[i]->getProblemTile()
                               + QDir::separator() + "realjudge.exe" + "\"");
 #endif
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_MAC
             QFile::copy(":/judge/realjudge_linux",
                         Settings::selfTestPath() + taskList[i]->getProblemTile()
                         + QDir::separator() + "realjudge");
@@ -226,7 +226,7 @@ void SelfTestUtil::makeSelfTest(QWidget *widget, Contest *contest)
                 }
                 out << "echo." << endl << endl;
 #endif
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_MAC
                 if (! taskList[i]->getStandardInputCheck() && taskList[i]->getTaskType() == Task::Traditional) {
                     out << QString("cp %1 %2").arg(inputFile,
                                                    taskList[i]->getInputFileName()) << endl;
@@ -313,7 +313,7 @@ void SelfTestUtil::makeSelfTest(QWidget *widget, Contest *contest)
             }
         }
         file.close();
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_MAC
         QProcess::execute(QString("chmod +x \"") + Settings::selfTestPath() + taskList[i]->getProblemTile()
                           + QDir::separator() + "check.sh" + "\"");
 #endif
