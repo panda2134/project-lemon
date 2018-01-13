@@ -499,6 +499,14 @@ void JudgingThread::compareRealNumbers(const QString &contestantOutput)
             fclose(standardOutputFile);
             return;
         }
+        if(a != a) {
+            score = 0;
+            result = WrongAnswer;
+            message = tr("Found nan");
+            fclose(contestantOutputFile);
+            fclose(standardOutputFile);
+            return;
+        }
         if (fabs(a - b) > eps) {
             score = 0;
             result = WrongAnswer;
