@@ -67,6 +67,12 @@ int main(int argc, char *argv[]) {
             fclose(standardOutputFile);
             return 0;
         }
+	if (a != a) {
+	    printf("Found NaN");
+            fclose(contestantOutputFile);
+            fclose(standardOutputFile);
+            return 0;
+        }
         if (fabs(a - b) > eps) {
 			printf("Wrong answer\nRead %.10lf but expect %.10lf\n", a, b);
             fclose(contestantOutputFile);
